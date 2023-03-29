@@ -9,6 +9,8 @@ body {
     background: #f5f5f5;
     align-items: center;
     display: flex;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 main {
@@ -19,10 +21,12 @@ main {
 }
 
 .generator {
-    background: #b4b3b3;
+    background: #e4e3e3;
+    color: rgb(85, 79, 79);
     border: solid;
     border-radius: 5px;
     padding: 20px;
+    height: 200px;
 
 }
     h2 {
@@ -44,6 +48,12 @@ main {
             font-weight: 500;
         }
 
+        /* buttons */
+    .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
     #generate {
         font-family: sans-serif;
         float: left;
@@ -65,3 +75,24 @@ main {
         text-align: center;
         
     }
+    /* end buttons */
+
+
+
+    @media screen and (max-width: 640px) {
+        main {
+            margin: 10% 5% 10% 5%;
+
+        }
+        .generator {
+            height: 230px;
+        }
+        /* .buttons { */
+            /* display: flex;
+            flex-wrap: wrap;
+            justify-content: center; */
+        }
+    
+    
+        
+    

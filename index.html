@@ -13,10 +13,11 @@
 
 <main>
     <div class="generator">
-        <h2>Password Generator</h2>
+        <h2>Password Generator
+        </h2>
             <input type="text" id="password" placeholder="Your Secure Password" readonly>
             <div class="buttons">
-                <button id="generate">Generate Password</button>
+                <button id="generate" onclick="alertFunction()">Generate Password</button>
                 <button id="copy">Copy to Clipboard</button>
             </div>  
 
@@ -30,7 +31,11 @@
 
 
 
-
+<script>
+    function alertFunction() {
+        alert("Hello! I am an alert box!!");
+    }
+</script>
 
 
 <script src="/assets/script.js"></script>
