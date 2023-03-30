@@ -9,22 +9,18 @@ var Password = {
 }
 
 
-var lengthPrompt = 0;
-// pw config prompts
-function Generator() {
-    lengthPrompt = window.prompt("Enter a value between 8 and 128");
 
-    if (lengthPrompt < 8 || lengthPrompt > 128) {
+// overall pw generator function that will be called when button "Generate Password" is clicked
+function Generator() {
+    //set charlength to the value the window.prompt returns
+    charlength = window.prompt("Enter a value between 8 and 128");
+// if the value is less than 8 or greater than 128, then alert user to enter a value between 8 and 128 ELSE 
+    if (charlength < 8 || charlength > 128) {
         window.alert("Please enter a value between 8 and 128");
-        return passConfig();
-    } else {
-        charlength = lengthPrompt;
-        console.log(charlength);
+        return Generator();
     } 
-        // else if (lengthPrompt >= 8 || lengthPrompt <= 128) {
-        // window.confirm("Should your password contain special characters?");
-        // }
-        // if yes, then add special characters to array
+
+        // window confirm message that asks if special characters should be included in the password. if yes, then add special characters to arra. if no, set array to empty
         specchar = window.confirm("Should your password contain special characters?");
             if (specchar === true) {
             var specialCharacters = ["!","@","#","$","%","^","&","*","(",")","-","_","=","+","[","]","{","}","|",";",":","<",">","?","/"];
@@ -33,8 +29,8 @@ function Generator() {
             var specialCharacters = [];
             console.log(specialCharacters);
         }
-        // if no, then do not add special characters to array
-        // window.confirm("Should your password contain numbers?");
+
+        // window.confirm that asks if password cshould ontain numbers?");
         numchar = window.confirm("Should your password contain numbers?");
         if (numchar === true) {
             var numbers = [0,1,2,3,4,5,6,7,8,9];
@@ -69,19 +65,22 @@ function Generator() {
         }
 
 
-        // if all confirm options are not true then alert user to select at least one option
+        // if all confirm options are not true then alert user to select at least one option and rerun the function
         if (specchar === false && numchar === false && lowchar === false && upchar === false) {
             window.alert("Please select at least one option");
             return passConfig();
         } else {
-            window.alert("Your password will be " + lengthPrompt + " characters long.");
+            window.alert("Your password will be " + charlength + " characters long.");
         }
 
+        // create a variable that is an array of all the arrays that were created above
         var password = specialCharacters.concat(numbers, lowercaseLetters, uppercaseLetters);
         console.log(password);
 
+        // create a function that will generate the password based on the length of the password and the arrays that were created
         function generatePassword(password, charlength) {
             let newpassword = [];
+            // use a for loop to iterate through the password array and push a random character to the newpassword array based on the length of the password as stored in the charlength variable
             for (let i = 0; i < charlength; i++) {
                 let randomIndex = Math.floor(Math.random() * password.length);
                 newpassword.push(password[randomIndex]);
