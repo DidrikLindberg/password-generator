@@ -77,6 +77,8 @@ function Generator() {
         var password = specialCharacters.concat(numbers, lowercaseLetters, uppercaseLetters);
         console.log(password);
 
+        
+
         // create a function that will generate the password based on the length of the password and the arrays that were created
         function generatePassword(password, charlength) {
             let newpassword = [];
@@ -88,11 +90,22 @@ function Generator() {
             //inlcude return statement in function to make the array available outside of the function
             return newpassword;
         }
-        
+        // console.log(newpassword);
+
+        function displayPassword() {
+
+        let passwordOutput = document.getElementById('password');
+        let newpassword = generatePassword(password, charlength);
+        passwordOutput.placeholder = newpassword.join('');
+        console.log(newpassword)
+        }
+        displayPassword();
+        console.log(newpassword);
         // set the password to the value of the generatePassword function and pass the password and charlength variables as arguments
-           let finalpass = generatePassword(password, charlength);
-            console.log(finalpass);
-
-
+        //    let finalpass = generatePassword(password, charlength);
+        //     console.log(finalpass);
+            
+        //     let passwordElement = document.getElementById('password');
+        //     passwordElement.textContent = finalpass.join('');
 
 }
