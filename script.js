@@ -1,24 +1,25 @@
 var Password = {
-    numbers: [""],
-    specialCharacters: [""],
-    lowercaseLetters: [""],
-    uppercaseLetters: [""],
-    length: 0,
-    password: [""],
+    numbers: [],
+    specialCharacters: [],
+    lowercaseLetters: [],
+    uppercaseLetters: [],
+    charlength: 0,
+    password: [],
+    finalpass: [],
 }
 
 
 var lengthPrompt = 0;
-// pw config prompt
-function passConfig() {
+// pw config prompts
+function Generator() {
     lengthPrompt = window.prompt("Enter a value between 8 and 128");
 
     if (lengthPrompt < 8 || lengthPrompt > 128) {
         window.alert("Please enter a value between 8 and 128");
         return passConfig();
     } else {
-        var length = lengthPrompt;
-        console.log(length);
+        charlength = lengthPrompt;
+        console.log(charlength);
     } 
         // else if (lengthPrompt >= 8 || lengthPrompt <= 128) {
         // window.confirm("Should your password contain special characters?");
@@ -68,7 +69,7 @@ function passConfig() {
         }
 
 
-//if all confirm options are not true then alert user to select at least one option
+        // if all confirm options are not true then alert user to select at least one option
         if (specchar === false && numchar === false && lowchar === false && upchar === false) {
             window.alert("Please select at least one option");
             return passConfig();
@@ -76,60 +77,23 @@ function passConfig() {
             window.alert("Your password will be " + lengthPrompt + " characters long.");
         }
 
-        //create  the password and display it in the text area. the password has to be the length of the lengthPrompt variable and be random
-        
-
-  
-        // if (specialCharacters === [] && numbers === [] && lowercaseLetters === [] && uppercaseLetters === []) {
-        //     window.alert("Please select at least one option");
-        //     return passConfig();
-        // } else {
-        //     window.alert("Your password will be " + lengthPrompt + " characters long.");
-        // }
-  
-  
-  
         var password = specialCharacters.concat(numbers, lowercaseLetters, uppercaseLetters);
         console.log(password);
-  
-        //not working
-        // if all options are selected, then add all options to array
-        //push all options to an array
-//generate a random password based on the length of the password selected in lengthPrompt
 
-
-        for (var i = 0; i < password.length; i++) {
-            var password += math.floor(math.random() * password.length);
-            console.log(password);
+        function generatePassword(password, charlength) {
+            let newpassword = [];
+            for (let i = 0; i < charlength; i++) {
+                let randomIndex = Math.floor(Math.random() * password.length);
+                newpassword.push(password[randomIndex]);
+            }
+            //inlcude return statement in function to make the array available outside of the function
+            return newpassword;
         }
-        console.log(password);
-
-
-        // function randompass() {
-        // var password = specialCharacters.concat(numbers, lowercaseLetters, uppercaseLetters);
-        // console.log(password);
-        // }
-
-
-        //select random characters from array equal to the length of the password selected in lengthPrompt
-        // var password = password[Math.floor(Math.random() * lengthPrompt)];
-        // console.log(password);
         
-        // if no options are selected, then alert user to select at least one option
-        // if all options are selected, then add all options to array
-        // if only some options are selected, then add only those options to array
-        // if user cancels all of the prompts, then alert user to select at least one option
-        // if user cancels all of the prompts, then return to beginning of function
-
-
-
-
-
-
+        // set the password to the value of the generatePassword function and pass the password and charlength variables as arguments
+           let finalpass = generatePassword(password, charlength);
+            console.log(finalpass);
 
 
 
 }
-
-
-
