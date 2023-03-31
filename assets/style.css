@@ -22,9 +22,8 @@ main {
 }
 
 .generator {
-    background: #e4e3e3;
-    color: rgb(85, 79, 79);
-    border: solid;
+    background: #b2c3f1;
+    box-shadow: rgba(0, 0, 0, 0.664) 5px 5px 10px 0px;
     border-radius: 5px;
     padding: 20px;
     height: 200px;
@@ -42,6 +41,7 @@ main {
         width: 100%;
         padding: 10px;
         border: solid;
+        border-color: rgb(253, 253, 253);
         border-radius: 5px;
         margin-bottom: 10px;
     }
@@ -55,13 +55,15 @@ main {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        
     }
     #generate {
         font-family: sans-serif;
         float: left;
         font-size: 15px;
         margin-top: 10px;
-        border: 2px solid #000000;
+        border-color: rgb(253, 253, 253);
+        border-radius: 5px;
         width: 155px;
         height: 30px;
         text-align: center;
@@ -71,7 +73,8 @@ main {
         float: right;
         font-size: 15px;
         margin-top: 10px;
-        border: 2px solid #000000;
+        border-color: rgb(253, 253, 253);
+        border-radius: 5px;
         width: 155px;
         height: 30px;
         text-align: center;
